@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
               if (snapshot.hasData) {
                 return ResponsiveLayout(
                   mobileScreenLayout: const mobileScreenLayouts(),
-                  webScreenLayout: webScreenLayouts(),
+                  webScreenLayout: WebScreenLayout(),
                 );
               } else if (snapshot.hasError) {
                 return Center(
@@ -77,3 +77,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+webScreenLayouts() {}

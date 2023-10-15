@@ -71,7 +71,7 @@ class _SignupScreenState extends State<SignupScreen> {
         MaterialPageRoute(
           builder: (context) => const ResponsiveLayout(
             mobileScreenLayout: mobileScreenLayouts(),
-            webScreenLayout: webScreenLayouts(),
+            webScreenLayout: WebScreenLayout(),
           ),
         ),
       );
@@ -181,7 +181,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       : const Text('Sign up'),
                   width: double.infinity,
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
                   decoration: const ShapeDecoration(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(

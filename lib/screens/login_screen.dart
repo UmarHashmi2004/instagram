@@ -8,6 +8,7 @@ import 'package:instagram_flutter/responsive/responsive_layout.dart';
 import 'package:instagram_flutter/responsive/web_screen_layout.dart';
 import 'package:instagram_flutter/screens/signup_screen.dart';
 import 'package:instagram_flutter/utils/colors.dart';
+import 'package:instagram_flutter/utils/global_variables.dart';
 import 'package:instagram_flutter/utils/utils.dart';
 import 'package:instagram_flutter/widgets/text_field_input.dart';
 
@@ -27,7 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _emailController.dispose();
     //there a issue when writing _emailController(); like this
@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
         MaterialPageRoute(
           builder: (context) => const ResponsiveLayout(
             mobileScreenLayout: mobileScreenLayouts(),
-            webScreenLayout: webScreenLayouts(),
+            webScreenLayout: WebScreenLayout(),
           ),
         ),
       );
@@ -73,7 +73,10 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 32),
+          padding: MediaQuery.of(context).size.width > webScreenSize
+              ? EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width / 3)
+              : const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
